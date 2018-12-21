@@ -1,0 +1,27 @@
+--- configure	2018-12-21 18:07:28.180286136 +0100
++++ configure	2018-12-21 18:14:10.821506137 +0100
+@@ -4541,9 +4541,6 @@
+   aux_missing="$aux_missing autoconf"
+ fi
+ 
+-test -n "$critic_missing" && { { echo "$as_me:$LINENO: error:
+-*** These critical programs are missing or too old:$critic_missing
+-*** Check the INSTALL file for required versions." >&5
+ echo "$as_me: error:
+ *** These critical programs are missing or too old:$critic_missing
+ *** Check the INSTALL file for required versions." >&2;}
+*** configure.in	2007-03-20 13:11:23.000000000 +0100
+--- configure.in.old	2018-12-21 16:03:59.588292137 +0100
+***************
+*** 898,907 ****
+    aux_missing="$aux_missing autoconf"
+  fi
+  
+- test -n "$critic_missing" && AC_MSG_ERROR([
+- *** These critical programs are missing or too old:$critic_missing
+- *** Check the INSTALL file for required versions.])
+- 
+  test -n "$aux_missing" && AC_MSG_WARN([
+  *** These auxiliary programs are missing or incompatible versions:$aux_missing
+  *** some features will be disabled.
+--- 898,903 ----

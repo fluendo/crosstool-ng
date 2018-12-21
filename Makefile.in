@@ -26,8 +26,12 @@ endif
 # '-Rr' to MAKEFLAGS adds it literaly ( and does not add 'Rr' )
 ifeq ($(filter Rr,$(MAKEFLAGS)),)
 ifeq ($(filter -Rr,$(MAKEFLAGS)),)
+ifeq ($(filter rR,$(MAKEFLAGS)),)
+ifeq ($(filter -rR,$(MAKEFLAGS)),)
 CT_MAKEFLAGS += -Rr
 endif # No -Rr
+endif # No Rr
+endif # No Rr
 endif # No Rr
 
 # Remove any suffix rules

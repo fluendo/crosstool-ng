@@ -1,0 +1,25 @@
+--- glibc-2.6.1/elf/Makefile	2007-02-12 16:16:57.000000000 +0100
++++ glibc-2.6.1/elf/Makefile	2018-12-21 17:25:05.705684136 +0100
+@@ -120,6 +120,13 @@
+ install-bin-script = ldd
+ endif
+ 
++ifeq (yes,$(build-static-nss))
++nssobjdir := $(patsubst ../$(subdir),.,$(common-objpfx)nss)
++resolvobjdir := $(patsubst ../$(subdir),.,$(common-objpfx)resolv)
++otherlibs += $(nssobjdir)/libnss_files.a $(resolvobjdir)/libnss_dns.a \
++	     $(resolvobjdir)/libresolv.a
++endif
++
+ others		= sprof sln
+ install-bin	= sprof
+ others-static   = sln
+@@ -300,7 +307,7 @@
+ 		  $(LDFLAGS-rtld) -Wl,-z,defs -Wl,--verbose 2>&1 |	\
+ 		  LC_ALL=C \
+ 		  sed -e '/^=========/,/^=========/!d;/^=========/d'	\
+-		      -e 's/\. = 0 + SIZEOF_HEADERS;/& _begin = . - SIZEOF_HEADERS;/' \
++		      -e 's/\. = .* + SIZEOF_HEADERS;/& _begin = . - SIZEOF_HEADERS;/' \
+ 		  > $@.lds
+ 	$(LINK.o) -nostdlib -nostartfiles -shared -o $@			\
+ 		  $(LDFLAGS-rtld) -Wl,-z,defs $(z-now-$(bind-now))	\

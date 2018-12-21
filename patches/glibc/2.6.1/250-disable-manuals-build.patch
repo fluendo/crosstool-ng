@@ -1,0 +1,11 @@
+--- o/Makeconfig	2018-12-21 18:07:28.048220136 +0100
++++ n/Makeconfig	2018-12-21 18:35:27.019286137 +0100
+@@ -911,7 +911,7 @@
+ all-subdirs = csu assert ctype locale intl catgets math setjmp signal	    \
+ 	      stdlib stdio-common libio malloc string wcsmbs time dirent    \
+ 	      grp pwd posix io termios resource misc socket sysvipc gmon    \
+-	      gnulib iconv iconvdata wctype manual shadow po argp	    \
++	      gnulib iconv iconvdata wctype shadow po argp	    \
+ 	      crypt nss localedata timezone rt conform debug		    \
+ 	      $(add-on-subdirs) $(dlfcn) $(binfmt-subdir)
+ 
