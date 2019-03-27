@@ -1,8 +1,7 @@
 # Build script for ltrace
 
 do_debug_ltrace_get() {
-    CT_GetFile "ltrace_${CT_LTRACE_VERSION}.orig" .tar.gz               \
-               {ftp,http}://ftp.de.debian.org/debian/pool/main/l/ltrace/
+    CT_GetFile "ltrace_${CT_LTRACE_VERSION}.orig" .tar.gz https://mirrors.mediatemple.net/debian-archive/debian/pool/main/l/ltrace/
     # Create a link so that the following steps are easier to do:
     CT_Pushd "${CT_TARBALLS_DIR}"
     ltrace_ext=$(CT_GetFileExtension "ltrace_${CT_LTRACE_VERSION}.orig")
